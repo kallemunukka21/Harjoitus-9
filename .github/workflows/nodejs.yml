@@ -20,5 +20,7 @@ jobs:
     - name: Asenna riippuvuudet
       run: npm install
       
-    - name: Aja testit
-      run: npm run coverage
+    - name: Aja testit ja lähetä Coverallsiin
+      run: npm run coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
