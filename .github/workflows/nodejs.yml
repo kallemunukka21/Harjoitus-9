@@ -1,0 +1,24 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Hae koodi
+      uses: actions/checkout@v4
+      
+    - name: Asenna Node.js (versio 22)
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        
+    - name: Asenna riippuvuudet
+      run: npm install
+      
+    - name: Aja testit
+      run: npm run coverage
